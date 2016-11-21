@@ -1,0 +1,6 @@
+d:\documents\visual studio 2015\Projects\Wallpaper Swapper\Wallpaper Swapper\bin\Release\Wallpaper Swapper.exe.config
+d:\documents\visual studio 2015\Projects\Wallpaper Swapper\Wallpaper Swapper\bin\Release\Wallpaper Swapper.exe
+d:\documents\visual studio 2015\Projects\Wallpaper Swapper\Wallpaper Swapper\bin\Release\Wallpaper Swapper.pdb
+d:\documents\visual studio 2015\Projects\Wallpaper Swapper\Wallpaper Swapper\obj\Release\Wallpaper Swapper.exe
+d:\documents\visual studio 2015\Projects\Wallpaper Swapper\Wallpaper Swapper\obj\Release\Wallpaper Swapper.pdb
+D:\Documents\Visual Studio 2015\Projects\Wallpaper Swapper\Wallpaper Swapper\obj\Release\Wallpaper Swapper.csprojResolveAssemblyReference.cache

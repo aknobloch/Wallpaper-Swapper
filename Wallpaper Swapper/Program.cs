@@ -30,46 +30,37 @@ namespace Wallpaper_Swapper
 
             static void Main(string[] args)
             {
-                string wallpaperDirectory = findWallpapers(ROOT_DIRECTORY);
 
-                changeWallpaper(wallpaperDirectory);
+                string[] paths = Directory.GetFiles(ROOT_DIRECTORY, "*", SearchOption.AllDirectories);
 
-            }
+                Random rand = new Random();
+                string selectedPath;
 
-            static string findWallpapers(string rootDirectory)
-            {
-                Random ranGen = new Random();
-
-                string[] files = Directory.GetFiles(rootDirectory);
-                List<string> allPaths = Directory.GetDirectories(rootDirectory).Concat<string>(files)
-                                                                               .ToList<string>();
-
-                string randomPath;
+                // select random wallpaper. if thumbs.db or desktop.ini, ignore and try again
                 do
                 {
-                    int randomIndex = ranGen.Next(0, allPaths.Count);
-                    randomPath = allPaths[randomIndex];
-                }
-                // re-roll if mobile or dual wallpaper directory
-                while (randomPath.Contains("Dual") || randomPath.Contains("Mobile"));
+                    selectedPath = paths[rand.Next(paths.Length + 1)];
 
-                // find if directory
-                FileAttributes attr = File.GetAttributes(@randomPath);
-                // if directory
-                if ((attr & FileAttributes.Directory) == FileAttributes.Directory)
-                {
-                    return findWallpapers(randomPath);
-                }
-                // if file
-                else
-                {
-                    return randomPath;
-                }
+                } while (selectedPath.EndsWith(".ini") || selectedPath.EndsWith(".db"));
 
+                ChangeWallpaper(selectedPath);
             }
 
-            static void changeWallpaper(String filePath)
+            static void ChangeWallpaper(String filePath)
             {
+
+                // registry keys will cause wallpaper to be fit. it works 
+                // by performing the neccessary sacrificial rituals in order to summon
+                // Bill Gates from his eternal slumber.
+                // pulled from here: 
+                //  http://stackoverflow.com/questions/1061678/change-desktop-wallpaper-using-code-in-net
+                // http://stackoverflow.com/questions/25434659/fit-fill-image
+
+                RegistryKey key = Registry.CurrentUser.OpenSubKey(@"Control Panel\Desktop", true);
+
+                key.SetValue(@"WallpaperStyle", "10");
+                key.SetValue(@"TileWallpaper", "0");
+
                 SystemParametersInfo(SPI_SETDESKWALLPAPER,
                 0,
                 filePath,

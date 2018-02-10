@@ -1,7 +1,4 @@
 # Wallpaper Swapper
-Created : August 2016
-
-# About
 This was the first native application I made in C# (aside from Unity development). It was a simple program designed to swap the desktop wallpaper on my computer to a random choice from my library of pictures. 
 
 It also can add a contextual menu option when right clicking on the desktop by adding a registry key.

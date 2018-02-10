@@ -12,7 +12,7 @@ There are a couple bugs present, documented in the Issues section.
 ### Prerequisites
 * Windows PC
 * Visual Studio
-* Wallpapers saved to computer in a single location
+* Collection of Wallpapers
 ### Initial Setup
 The source for Wallpaper Swapper is fairly specific to my computer, however the source can easily be modified to fit yours. In the `Wallpaper Swapper/Program.cs` file, simply change the `ROOT_DIRECTORY` variable to the root directory of where your wallpapers are located. 
 ### Running on Start
